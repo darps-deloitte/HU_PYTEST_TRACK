@@ -1,3 +1,5 @@
+from itertools import combinations
+
 import pytest
 
 
@@ -19,7 +21,7 @@ class TestPairsPossible(TestStringClass):
 
     def test_PossiblePairsList(self):
         strlist = TestStringClass.test_ConvertToList(self)
-        pairList = [(a, b) for idx, a in enumerate(strlist) for b in strlist[idx + 1:]]
+        pairList = list(combinations(strlist, 2))
         return pairList
 
 
